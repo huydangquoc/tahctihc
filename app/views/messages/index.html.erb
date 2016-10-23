@@ -14,7 +14,11 @@
         <b>unread</b>
       <% end %>
       <p>Sent at: <%= message.created_at.strftime("%d %b  %Y at %I:%M%p")%></p>
-      <%= link_to 'Read Now',message_path(message), class: 'btn btn-primary'  %>
+      <% if !message.read? %>
+        <%= link_to 'Read Now',message_path(message), class: 'btn btn-primary'  %>
+      <% else %>
+        <h3>The message has already been read.</h3>
+      <% end %>
     </li>
   <% end %>
 </ul>

@@ -12,7 +12,7 @@ class Message < ApplicationRecord
     read_at
   end
 
-  scope :unread, -> {where(read_at: nil)}
+  scope :unread, -> { where(read_at: nil) }
 
   scope :belong_to_me, -> (user) do
     where("messages.recipient_id = ?", user.id)

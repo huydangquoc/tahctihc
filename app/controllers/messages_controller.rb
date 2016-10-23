@@ -7,6 +7,8 @@ class MessagesController < ApplicationController
     @message = Message.find params[:id]
     if !@message.read? && current_user == @message.recipient
       @message.mark_as_read!
+    else
+      redirect_to messages_path, notice: "You're very SNEAKY, bad, it's really bad."
     end
   end
 

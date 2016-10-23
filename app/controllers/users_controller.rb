@@ -18,6 +18,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @users = User.all_except(current_user)
+    @new_friends = User.where.not(id: friends).where.not(id: current_user.id).order(:name)
+  end
+
   private
 
   def user_params
