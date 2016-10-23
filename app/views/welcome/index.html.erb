@@ -1,0 +1,24 @@
+<% if current_user %>
+  <div class="jumbotron">
+    <h1 class="display-3">Hey <%= current_user.name %></h1>
+    <p class="lead">Let send some messages, make some more friends, delete some you don't like or do whatever you want.</p>
+    <hr class="my-2">
+    <p>Remember to log out every time you finish your chat.</p>
+    <p class="lead">
+      <%= link_to "Log out #{current_user.name}", logout_path, method: 'delete', class: 'btn btn-warning btn-lg' %>
+    </p>
+  </div>
+<% else %>
+  <div class="jumbotron">
+    <h1 class="display-3">Welcome stranger!!!</h1>
+    <p class="lead">This is the best "Secret Chat System" ever. Here you can send message that only be able to read once. After several weeks, both you and recipent will never remember what did you two talk with each other. How cute is it?</p>
+    <hr class="my-2">
+    <p>What are you waiting for? Create new account or Log in adn start send message to your friend now.</p>
+    <p class="lead">
+      <%= link_to "Create an Account", new_user_path, class: 'btn btn-success btn-lg' %>
+      or 
+    <%= link_to "Log in", new_session_path, class: 'btn btn-secondary btn-lg' %>
+      if you already have an account.
+    </p>
+  </div>
+<% end %>

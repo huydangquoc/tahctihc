@@ -22,7 +22,7 @@ class MessagesController < ApplicationController
     @message.sender_id = current_user.id
 
     if @message.save
-      redirect_to messages_path
+      redirect_to sent_messages_path, flash: {success: "Message sent successfully."}
     else
       @users = User.all_except(current_user)
       render 'new'

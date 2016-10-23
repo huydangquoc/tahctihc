@@ -1,15 +1,25 @@
-<ul class="list-group col-xs-3">
-  <% @messages.each do |message| %>
-    <li class="list-group-item">
-      <h4>
-        <%= message.recipient.name %>
-      </h4>
-      <% if message.read_at %>
-        <p><b>Read at:</b> <%= message.read_at.strftime("%A, %B %d, %H:%M")  %></p>
-      <% else %>
-        <b>Unread</b>
-      <% end %>
-      <p><%= message.created_at.strftime("%d %b  %Y at %I:%M%p")%></p>
-    </li>
-  <% end %>
-</ul>
+<h1>Sent</h1>
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>To</th>
+      <th>Sent at</th>
+      <th>Read at</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @messages.each do |message| %>
+      <tr class="<%= message.read?? "" : "table-danger" %>">
+        <td><%= message.recipient.name %></td>
+        <td><%= message.created_at.strftime("%d %b  %Y at %I:%M%p")%></td>
+        <td>
+          <% if message.read_at %>
+            <%= time_ago_in_words(message.read_at)%> ago
+          <% else %>
+            UNREAD
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

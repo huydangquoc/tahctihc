@@ -1,17 +1,18 @@
 <div class="row">
   <div class="col-xs-6">
-    <h3>Your total friends (<%= @friends.count %>)</h3>
+    <h1>I have <%= @friends.count %> friend(s)</h1>
   </div>
   <div class="col-xs-6">
-    <%= link_to "Add more friends >>", new_friendship_path, class: 'btn btn-primary pull-xs-right' %>
+    <%= link_to "Add more >>", new_friendship_path, class: 'btn btn-primary pull-xs-right' %>
   </div>
 </div>
+<br>
 <table class="table">
-  <thead>
+  <thead class="thead-inverse">
     <tr>
-      <td>Name</td>
-      <td>Email</td>
-      <td></td>
+      <th>Name</th>
+      <th>Email</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
