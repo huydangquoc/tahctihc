@@ -5,8 +5,12 @@ class MessagesController < ApplicationController
 
   def show
     @message = Message.find params[:id]
-    if !@message.read? && current_user == @message.recipient
-      @message.mark_as_read!
+    if current_user == @message.recipient
+      if !@message.read?
+        @message.mark_as_read!
+      else
+        redirect_to messages_path, notice: "You read it already, no way to read it again, baby!"
+      end
     else
       redirect_to messages_path, notice: "You're very SNEAKY, bad, it's really bad."
     end
