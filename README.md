@@ -1,4 +1,4 @@
-# Homework 2 - *Name of App*
+# Homework 2 - *ChitChat*
 
 **ChitChat** is a Ruby on Rails application that allows users to send messages to each other that can only be read once.
 
@@ -36,15 +36,11 @@ The following **optional** functionality is complete:
 * [ ] User gets an email when a message they have sent is read with the time at which the message was read.
 * [ ] User can send a message to the email address of a non-registered user. The recipient will receive an email with a link to sign up for the service, and after creating an account, will be able to view the sent message. 
 
-The following **additional** features are implemented:
-
-- [ ] (List anything else that you can get done to improve the app functionality!)
-
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
 
-<img src="http://i.imgur.com/1h14NVP.gifv" alt="walkthrough" />
+![Video Walkthrough](walkthrough)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
